@@ -21,7 +21,13 @@ if user_choice == 1:
         expenses = json.load(file)
 
     description = input("Description: ")
-    amount = input("Amount: ")
+    while True:
+        try:
+            amount = float(input("Amount: "))
+            break
+        except ValueError:
+            print("Please only enter a number e.g 4, 3.14")
+
     category = input("Category: ")
 
     expense = {
