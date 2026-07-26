@@ -2,7 +2,7 @@ import json
 
 print("Welcome to the CLI expense tracker.")
 
-options = ["Add Expense", "View Expense", "Show Total", "Exit"]
+options = ["Add Expense", "View Expenses", "Show Total", "Exit"]
 
 for index, choice in enumerate(options, start=1):
     print(f"{index} - {choice}")
@@ -50,7 +50,7 @@ while True:
             print("You currently have no expenses to show. After you've added some, come back here to see them.")
             continue
         for expense in expenses:
-            print(f"{expense['description']}, {expense['amount']}, {expense['category']}")
+            print(f"{expense['description']}, {expense['amount']:.2f}, {expense['category']}")
 
     elif user_choice == 3: # Show Expense total
         with open("expenses.json", "r") as file:
@@ -62,7 +62,7 @@ while True:
         total = 0
         for expense in expenses:
             total += expense["amount"]
-        print(f"Your total expenses are: £{total}")
+        print(f"Your total expenses are: £{total:.2f}")
     elif user_choice == 4:
         print("Goodbye.")
         break
