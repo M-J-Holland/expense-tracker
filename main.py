@@ -46,12 +46,19 @@ while True:
     elif user_choice == 2: # Show Expenses
         with open("expenses.json", "r") as file:
             expenses = json.load(file)
+        if not expenses:
+            print("You currently have no expenses to show. After you've added some, come back here to see them.")
+            continue
         for expense in expenses:
-            print(f"{expense["description"]}, {expense["amount"]}, {expense["category"]}")
+            print(f"{expense['description']}, {expense['amount']}, {expense['category']}")
 
     elif user_choice == 3: # Show Expense total
         with open("expenses.json", "r") as file:
             expenses = json.load(file)
+        if not expenses:
+            print("You currently have no expenses to show the total. After you've added some, come back here to see "
+                  "them.")
+            continue
         total = 0
         for expense in expenses:
             total += expense["amount"]
