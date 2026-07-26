@@ -54,3 +54,6 @@ while True:
         for expense in expenses:
             total += expense["amount"]
         print(f"Your total expenses are: £{total}")
+    elif user_choice == 4:
+        print("Goodbye.")
+        break
