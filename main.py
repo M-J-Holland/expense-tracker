@@ -6,7 +6,9 @@ options = ["Add Expense", "View Expense", "Show Total", "Exit"]
 
 for index, choice in enumerate(options, start=1):
     print(f"{index} - {choice}")
+# main while loop
 while True:
+    # user_choice while loop
     while True:
         user_choice = input("\nChoice: ")
 
@@ -16,7 +18,7 @@ while True:
         except ValueError:
             print("Please only enter a number")
 
-    if user_choice == 1:
+    if user_choice == 1: # Add Expense
         with open("expenses.json", "r") as file:
             expenses = json.load(file)
 
@@ -41,13 +43,13 @@ while True:
         with open("expenses.json", "w") as file:
             json.dump(expenses, file, indent=4)
 
-    elif user_choice == 2:
+    elif user_choice == 2: # Show Expenses
         with open("expenses.json", "r") as file:
             expenses = json.load(file)
         for expense in expenses:
             print(f"{expense["description"]}, {expense["amount"]}, {expense["category"]}")
 
-    elif user_choice == 3:
+    elif user_choice == 3: # Show Expense total
         with open("expenses.json", "r") as file:
             expenses = json.load(file)
         total = 0
