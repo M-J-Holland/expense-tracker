@@ -32,9 +32,11 @@ def show_expenses():  # Show Expenses
         expenses = json.load(file)
     if not expenses:
         return "You currently have no expenses to show. After you've added some, come back here to see them."
-    else:
-        for expense in expenses:
-            return f"{expense['description']}, {expense['amount']:.2f}, {expense['category']}"
+
+    expense_list = []
+    for expense in expenses:
+        expense_list.append( f"{expense['description']}, £{expense['amount']:.2f}, {expense['category']}")
+    return "\n".join(expense_list)
 
 
 def show_expense_total():  # Show Expense total
