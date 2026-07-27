@@ -31,20 +31,18 @@ def show_expenses():  # Show Expenses
     with open("expenses.json", "r") as file:
         expenses = json.load(file)
     if not expenses:
-        print("You currently have no expenses to show. After you've added some, come back here to see them.")
-        return None
-    for expense in expenses:
-        return f"{expense['description']}, {expense['amount']:.2f}, {expense['category']}"
-    return None
+        return "You currently have no expenses to show. After you've added some, come back here to see them."
+    else:
+        for expense in expenses:
+            return f"{expense['description']}, {expense['amount']:.2f}, {expense['category']}"
 
 
 def show_expense_total():  # Show Expense total
     with open("expenses.json", "r") as file:
         expenses = json.load(file)
     if not expenses:
-        print("You currently have no expenses to show the total. After you've added some, come back here to see "
-              "them.")
-        return None
+        return "You currently have no expenses to show the total. After you've added some, come back here to see them."
+
     total = 0
     for expense in expenses:
         total += expense["amount"]
