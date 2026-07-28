@@ -30,8 +30,7 @@ def main():
             break
         else:
             print("You appear to have inputted an option that doesn't seem to exist, please try again\n")
-            for index, choice in enumerate(options, start=1):
-                print(f"{index} - {choice}")
+            menu()
 
 
 if __name__ == '__main__':
