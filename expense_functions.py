@@ -1,6 +1,13 @@
 import json
 
 
+def menu():
+    options = ["Add Expense", "View Expenses", "Show Total", "Exit"]
+    print()
+    for index, choice in enumerate(options, start=1):
+        print(f"{index} - {choice}")
+
+
 def add_expenses():
     with open("expenses.json", "r") as file:
         expenses = json.load(file)
@@ -35,7 +42,7 @@ def show_expenses():  # Show Expenses
 
     expense_list = []
     for expense in expenses:
-        expense_list.append( f"{expense['description']}, £{expense['amount']:.2f}, {expense['category']}")
+        expense_list.append(f"{expense['description']}, £{expense['amount']:.2f}, {expense['category']}")
     return "\n".join(expense_list)
 
 
