@@ -1,4 +1,5 @@
 import json
+import time
 
 
 def menu():
@@ -27,11 +28,14 @@ def add_expenses():
         "amount": amount,
         "category": category
     }
-
+    
     expenses.append(expense)
 
     with open("expenses.json", "w") as file:
         json.dump(expenses, file, indent=4)
+    print("Adding your expenses now...")
+    time.sleep(1)
+    print("Expenses successfully added.")
 
 
 def show_expenses():  # Show Expenses
