@@ -1,4 +1,4 @@
-from expense_functions import add_expenses, show_expenses, show_expense_total, menu
+from expenses import add_expenses, show_expenses, show_expense_total, menu
 
 
 # main while loop
