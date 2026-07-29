@@ -29,31 +29,28 @@ def check_amount(prompt):
 
 
 def add_expenses():
-    with open("expenses.json", "r") as file:
-        expenses = json.load(file)
+    expenses = read_expenses()
 
-        description = check_input("Description: ")
-        amount = check_amount("Amount: ")
-        category = check_input("Category: ")
+    description = check_input("Description: ")
+    amount = check_amount("Amount: ")
+    category = check_input("Category: ")
 
-        expense = {
-            "description": description,
-            "amount": amount,
-            "category": category
-        }
+    expense = {
+        "description": description,
+        "amount": amount,
+        "category": category
+    }
 
-        expenses.append(expense)
+    expenses.append(expense)
 
-        with open("expenses.json", "w") as file:
-            json.dump(expenses, file, indent=4)
-        print("Adding your expenses now...")
-        time.sleep(1)
-        print("Expenses successfully added.")
+    write_expenses(expenses)
+    print("Adding your expenses now...")
+    time.sleep(1)
+    print("Expenses successfully added.")
 
 
 def show_expenses():  # Show Expenses
-    with open("expenses.json", "r") as file:
-        expenses = json.load(file)
+    expenses = read_expenses()
     if not expenses:
         return "You currently have no expenses to show. After you've added some, come back here to see them."
 
@@ -64,8 +61,7 @@ def show_expenses():  # Show Expenses
 
 
 def show_expense_total():  # Show Expense total
-    with open("expenses.json", "r") as file:
-        expenses = json.load(file)
+    expenses = read_expenses()
     if not expenses:
         return "You currently have no expenses to show the total. After you've added some, come back here to see them."
 
